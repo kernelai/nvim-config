@@ -165,8 +165,6 @@ map <leader>e :e! ~/.config/nvim/init.vim<cr>
 " " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.config/nvim/pluged')
 Plug 'junegunn/vim-easy-align'
-"Plug 'http://github.com/scrooloose/nerdtree.git', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -187,6 +185,8 @@ Plug 'sickill/vim-monokai'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bfrg/vim-cpp-modern'
+" 括号多重色彩
+Plug 'luochen1990/rainbow'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'honza/vim-snippets'
@@ -200,6 +200,13 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'mileszs/ack.vim'
 "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"代码风格
+Plug 'rhysd/vim-clang-format'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"mark down
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 " " Initialize plugin system
  call plug#end()
 
@@ -341,7 +348,9 @@ if executable('ag')
 endif
 " don't want to jump to the first result automatically
 cnoreabbrev Ack Ack!
+"nnoremap <Leader>a :Ack!<Space>
 nnoremap <Leader>a :Ack!<Space>
+vnoremap <leader>a  :<C-u>call VisualSelection('', '')<CR>:Ack<Space><C-R>=@/<CR><CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " aire line
@@ -361,3 +370,10 @@ let g:airline_theme='badwolf'
 colorscheme gruvbox
 "关闭边框
 set signcolumn=no
+
+"括号多重色彩
+let g:rainbow_active = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" mark down 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+

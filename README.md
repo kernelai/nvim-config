@@ -27,3 +27,15 @@ curl -sL install-node.now.sh/lts | bash
 pip install neovim
 npm install -g neovim
 ```
+#### 安装ccls
+对于macos ：
+```
+brew install ccls
+```
+对于centos 7.6以上，先安装snap
+```
+yum install snapd
+systemctl enable --now snapd.socket
+ln -s /var/lib/snapd/snap /snap
+snap install ccls --classic
+```

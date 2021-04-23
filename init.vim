@@ -62,6 +62,11 @@ set belloff=all
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 "set whichwrap+=<,>,h,l
+"" Uncomment the following to have Vim jump to the last position when       
+" reopening a file                                                         
+if has("autocmd")                                                          
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif                                                        
+endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

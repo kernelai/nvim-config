@@ -21,8 +21,5 @@
       "rootPatterns": ["build.sbt"],
       "filetypes": ["scala", "sbt"]
     }
-  },
-  "snippets.ultisnips.directories": [
-      "~/.vim_runtime/UltiSnips"
-    ]
+  }
 }

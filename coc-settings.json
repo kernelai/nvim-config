@@ -21,5 +21,10 @@
       "rootPatterns": ["build.sbt"],
       "filetypes": ["scala", "sbt"]
     }
-  }
+  },
+  "snippets.ultisnips.directories": [
+    "UltiSnips",
+    "gosnippets/UltiSnips"
+  ]
 }
+

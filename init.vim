@@ -1,33 +1,35 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required set rtp+=~/.vim/bundle/Vundle.vim call vundle#begin() 
-call vundle#begin()
-Plugin 'iamcco/markdown-preview.vim'
-Plugin 'gmarik/Vundle.vim'
-Plugin 'fatih/vim-go'
+
+call plug#begin('~/.config/nvim/pluged')
+Plug 'iamcco/markdown-preview.vim'
+Plug 'gmarik/Vundle.vim'
+Plug 'fatih/vim-go'
 " Plugin 'ervandew/supertab'
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'dracula/vim'
-Plugin 'godlygeek/tabular'
-Plugin 'rust-lang/rust.vim'
-Plugin 'racer-rust/vim-racer'
-Plugin 'mrtazz/simplenote.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'csliu/a.vim'
-Plugin 'arcticicestudio/nord-vim'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'jsfaint/gen_tags.vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'peitalin/vim-jsx-typescript'
-Plugin 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'flazz/vim-colorschemes'
+Plug 'kien/ctrlp.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'dracula/vim'
+Plug 'godlygeek/tabular'
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+Plug 'mrtazz/simplenote.vim'
+Plug 'mileszs/ack.vim'
+Plug 'csliu/a.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'jsfaint/gen_tags.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'mdempsky/gocode', {'rtp': 'nvim/'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plugin 'mdempsky/gocode', {'rtp': 'nvim/'}
 
-call vundle#end()            " required
+call plug#end()
+
 filetype plugin indent on    " required
 
 set cmdheight=1

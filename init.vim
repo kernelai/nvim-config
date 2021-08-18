@@ -2,7 +2,7 @@
 " conmmon config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let mapleader=" "
+let mapleader=","
 set number
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -234,7 +234,7 @@ noremap <c-b> :LeaderfBuffer<cr>
 noremap <c-t> :LeaderfTag<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
-let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
+let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git', '.mod']
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_WindowHeight = 0.30
 let g:Lf_CacheDirectory = expand('~/.vim/cache')
@@ -367,14 +367,14 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
+"if has('nvim-0.4.0') || has('patch-8.2.0750')
+"  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+"  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+"  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+"  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+"endif
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
@@ -504,3 +504,16 @@ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" clang format
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:input_toggle = 1
+function! Fcitx2en()
+   let s:input_status = system("fcitx-remote")
+   if s:input_status == 2
+      let g:input_toggle = 1
+      let l:a = system("fcitx-remote -c")
+   endif
+endfunction
+
